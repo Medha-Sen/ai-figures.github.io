@@ -1,0 +1,115 @@
+<!-- tasks.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-Figures Tasks</title>
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+  <section class="section"><!-- tasks.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-Figures: Application in Downstream Tasks</title>
+
+  <!-- Fonts and Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <!-- JS Scripts (optional if needed for carousel/slider) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- Optional: Use a navbar here if consistent with the main site -->
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h1 class="title is-1 publication-title">AI-Figures: Application in Downstream Tasks</h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <h2 class="title is-3">1. Figure Captioning</h2>
+            <p>
+                We evaluate a range of Large Vision-Language Models (LVLMs) on the figure captioning task, including 
+                <strong>MOLMO-7B</strong>, <strong>InternVL2_5-8B</strong>, <strong>Qwen2-VL-7B</strong>, <strong>Janus-Pro7B</strong>, 
+                <strong>MiniCPM-V</strong>, as well as advanced proprietary models such as 
+                <strong>GPT-4o</strong>, <strong>GPT-4o mini</strong>, <strong>Claude 3.7 Sonnet</strong>, and 
+                <strong>Gemini 2.0 Flash</strong>.
+            </p>
+            <p>
+                For each model, we report performance using <strong>BLEU-2</strong>, <strong>ROUGE-L</strong>, and 
+                <strong>BERTScore</strong> across three evaluation settings:
+            </p>
+            <ol>
+                <li>Captioning without context,</li>
+                <li>Captioning with title as context, and</li>
+                <li>Captioning with both title and abstract as context.</li>
+            </ol>
+            <p>
+                To establish a strong performance baseline, we fine-tune <strong>GIT-base</strong> and <strong>GIT-large</strong>
+                on the uncleaned version of our dataset, allowing us to leverage the maximum number of figure-caption pairs during training.
+                However, all evaluations are conducted on the cleaned version of the dataset to ensure consistency and quality.
+            </p>
+            <p>
+                Our results show that the fine-tuned GIT models outperform all others, demonstrating the benefit of domain-specific adaptation.
+                Among the zero-shot LVLMs, open-source models—particularly <strong>MiniCPM</strong> and <strong>Qwen2-VL</strong>—
+                consistently perform well, often surpassing proprietary models such as <strong>Gemini</strong> and 
+                <strong>GPT</strong> variants.
+            </p>
+            <div class="full-width-content">
+                <img src="./static/images/caption1.PNG"
+                    class="caption-image"
+                    alt="Class wise stats" />
+                <h2 class="subtitle caption">Evaluation results for Figure Captioning</h2>
+            </div>
+            <div class="custom-caption-container">
+            <div class="custom-caption-content">
+                <img src="./static/images/caption2.PNG"
+                    class="custom-caption-image"
+                    alt="Class wise stats" />
+            </div>
+            </div>
+
+          <h2 class="title is-3">2. Text-to-Figure</h2>
+          <p>
+            To test the effectiveness of our fine-grained classification, we train a Stable Diffusion model (SDXL) both on our whole dataset and for a small set of classes for which the text-to-figure generation task is more plausible, i.e., classes containing procedural or architectural figures. We select only such figures because it is inexplicable to generate plot-based figures or other auxiliary diagrams or illustrations from only the figure caption. We select the Model Architecture and Pipeline classes from our dataset to create a training set comprising 21,839 images and the test set with 5,461 images for the targeted finetuning.
+          </p>
+            <div class="full-width-content">
+            <img src="./static/images/sdxl.PNG"
+                    class="caption-image"
+                    alt="sdxl" />
+                <h2 class="subtitle caption"> A comparative analysis of figure generations by the SDXL model fine-tuned on (a) the full AI Figures dataset (right), (b) the subset of classes <strong>Pipeline</strong> and <strong>Model Architecture</strong> from AI-Figures (middle)
+                </h2>
+            </div>
+          <!-- Add more tasks if needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
+
+
